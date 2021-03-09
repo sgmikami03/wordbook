@@ -4,6 +4,8 @@
 
 @section('content')
 
-  index
+  @foreach($articles as $article)
+    @include('articles.card')
+  @endforeach
 
 @endsection
