@@ -2,24 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Article;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
 
-    public function index(){
-        $articles = [
-        (object) [
-        'id' => 1,
-        'title' => 'タイトル1',
-        'body' => '本文1',
-        'created_at' => now(),
-        'user' => (object) [
-            'id' => 1,
-            'name' => 'ユーザー名1',
-        ],
-        ]
-        ];
+    public function index()
+    {
+        $articles = Article::all()->sortByDesc();
 
         return view('articles.index', ['articles' => $articles]);
     }
