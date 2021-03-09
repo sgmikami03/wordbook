@@ -19,7 +19,7 @@
     <title>@yield('title')</title>
 </head>
 <body>
-    @include('nav')
+    @yield('nav')
 
     <div id="content">
       @yield('content')

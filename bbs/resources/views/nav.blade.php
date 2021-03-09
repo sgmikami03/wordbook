@@ -2,7 +2,7 @@
 
     <a class="navbar-brand text-dark" href="#">みんなの単語帳</a>
 
-
+  @if($LinkCreation)
   <div class="dropdown">
     <button class="btn btn-light btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown">
         menu
@@ -17,5 +17,5 @@
         <a class="dropdown-item" href="#"><i class="far fa-user-circle"></i>guest</a>
       </div>
   </div>
-
+  @endif
 </nav>
