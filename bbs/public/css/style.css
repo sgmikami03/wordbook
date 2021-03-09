@@ -1,3 +1,8 @@
 #content{
     margin: 30px;
 }
+
+#page-title{
+    margin: 20px 0;
+    font-weight: 100;
+}
