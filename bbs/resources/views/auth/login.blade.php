@@ -25,6 +25,10 @@
     <input type="password" name="password" class="form-control" id="password" placeholder="パスワード" required>
   </div>
 
+  <label for="remember">自動ログインを有効にしますか？</label>
+  <input type="checkbox" name="remember" id="remember" value="false">
+  <br>
+
   <a class="link" href="{{ route('register') }}">新規登録はこちら</a>
   <br><br>
 
