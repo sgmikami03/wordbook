@@ -24,6 +24,9 @@
     <input type="password" name="password" class="form-control" id="password" placeholder="パスワード">
   </div>
 
+  <a class="link" href="">loginはこちら</a>
+  <br><br>
+
   <button type="submit" class="btn btn-primary">Submit</button>
   <!--google解放後
   <button type="googleで登録" class="btn btn-danger">googleで登録</button>
