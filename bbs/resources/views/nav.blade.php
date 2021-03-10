@@ -14,6 +14,10 @@
         @auth
         <a class="dropdown-item" href="#">投稿</a>
         <a class="dropdown-item" href="#"><i class="far fa-user-circle"></i>ユーザー名</a>
+        <form method="POST" action="{{ route('logout') }}">
+          @csrf
+          <button class="dropdown-item" type="submit">ログアウト</button>
+        </form>
         @endauth
 
         <!--guest-->
