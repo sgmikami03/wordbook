@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-    <a class="navbar-brand text-dark" href="#">みんなの単語帳</a>
+    <a class="navbar-brand text-dark" href="{{ route('index') }}">みんなの単語帳</a>
 
   @if($LinkCreation)
   <div class="dropdown">
@@ -8,13 +8,19 @@
         menu
     </button>
     <div class="dropdown-menu dropdown-menu-right">
-        <a class="dropdown-item" href="#">home</a>
+        <a class="dropdown-item" href="{{ route('index') }}">home</a>
+
         <!--login中-->
+        @auth
         <a class="dropdown-item" href="#">投稿</a>
         <a class="dropdown-item" href="#"><i class="far fa-user-circle"></i>ユーザー名</a>
+        @endauth
+
         <!--guest-->
-        <a class="dropdown-item" href="#">login・新規</a>
+        @guest
+        <a class="dropdown-item" href="{{ route('register') }}">login・新規</a>
         <a class="dropdown-item" href="#"><i class="far fa-user-circle"></i>guest</a>
+        @endguest
       </div>
   </div>
   @endif
