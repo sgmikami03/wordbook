@@ -10,6 +10,8 @@
 
 <h2 id="page-title">新規登録</h2>
 
+@include('error_card_list')
+
 <form method="POST" action="{{route('register')}}">
   @csrf
   <div class="form-group">
