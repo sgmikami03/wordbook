@@ -8,6 +8,8 @@
 
 @section('content')
 
+@include('error_card_list')
+
 <h2 id="page-title">ログイン</h2>
 
 <form method="POST" action="{{route('login')}}">
