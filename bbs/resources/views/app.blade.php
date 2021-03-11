@@ -19,13 +19,18 @@
     <!--自前のcss-->
     <link rel="stylesheet" href={{asset('/css/style.css')}}>
 
+    <!--vueを使用するため-->
+    <script src="{{ mix('js/app.js') }}" defer></script>
+
     <title>@yield('title')</title>
 </head>
 <body>
     @yield('nav')
 
     <div id="content">
+    <div id="app">
       @yield('content')
+    </div>
     </div>
 
 </body>
