@@ -8,7 +8,7 @@
 
 @section('content')
 
-  <h2 class="text-muted">(作成者)の単語帳作成</h2>
+  <h2 class="text-muted">{{ Auth::user()->name }}の単語帳作成</h2>
 
   <form action="" name="wordbook">
     <label class="text-muted" for="title">タイトルを入力</label>
@@ -17,7 +17,7 @@
     
     <create-wordbook></create-wordbook>
 
-    <input type="hidden" name="user_id" value="">
+    <input type="hidden" name="user_id" value="{{Auth::id()}}">
   </form>
 
 @endsection
