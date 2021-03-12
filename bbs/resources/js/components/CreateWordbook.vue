@@ -42,8 +42,8 @@
                               <a class="text-info" v-else @click="turnOnTrueWordEditMode(word)">編集</a>
                               <a class="text-danger">削除</a>
                           </td>
-                          <input type="hidden" name="wordList[][ja]" :value="word.ja">
-                          <input type="hidden" name="wordList[][en]" :value="word.en">
+                          <input type="hidden" name="wordList_ja[]" :value="word.ja">
+                          <input type="hidden" name="wordList_en[]" :value="word.en">
                       </tr>
                     </tbody>
                 </table>

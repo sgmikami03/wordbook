@@ -20,8 +20,21 @@ class ArticleController extends Controller
         return view('articles.create');
     }
 
-    public function store(Request $request)
+    public function store(Request $request, Article $article)
     {
-        
+        $article->title = $request->title;
+        $article->overview = $request->overview;
+        $article->user_id = $request->user_id;
+        $article->save();
+
+        for ($i=0; $i < count($request->wordList_ja); $i++) { 
+            \DB::table('words')->insert([
+                'ja' => $request->wordList_ja[$i],
+                'en' => $request->wordList_en[$i],
+                'article_id' => $article->id
+            ]);
+        }
+
+        return redirect()->route('index');
     }
 }
