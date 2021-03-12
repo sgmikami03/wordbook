@@ -7,7 +7,7 @@ use Illuminate\Database\Relations\BelongsTo;
 
 class Article extends Model
 {
-    public function user() :BelongsTo
+    public function user() 
     {
         return $this->belongsTo('App\User');
     }
