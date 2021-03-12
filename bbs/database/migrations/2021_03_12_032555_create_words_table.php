@@ -17,7 +17,7 @@ class CreateWordsTable extends Migration
             $table->bigIncrements('id');
             $table->string('ja');
             $table->string('en');
-            $table->bigInteger('wordbook_id')->references('id')->on('wordbooks');
+            $table->bigInteger('article_id')->references('id')->on('articles');
             $table->timestamps();
         });
     }
