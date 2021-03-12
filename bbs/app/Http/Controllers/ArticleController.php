@@ -15,7 +15,13 @@ class ArticleController extends Controller
         return view('articles.index', ['articles' => $articles]);
     }
 
-    public function create(){
+    public function create()
+    {
         return view('articles.create');
+    }
+
+    public function store(Request $request)
+    {
+        
     }
 }
