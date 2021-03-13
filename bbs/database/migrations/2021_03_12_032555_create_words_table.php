@@ -17,7 +17,8 @@ class CreateWordsTable extends Migration
             $table->bigIncrements('id');
             $table->string('ja');
             $table->string('en');
-            $table->bigInteger('article_id')->references('id')->on('articles');
+            $table->bigInteger('article_id')->unsigned();
+            $table->foreign('article_id')->references('id')->on('articles')->onDelete('cascade');
             $table->timestamps();
         });
     }
