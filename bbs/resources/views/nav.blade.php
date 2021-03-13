@@ -12,7 +12,7 @@
 
         <!--login中-->
         @auth
-        <a class="dropdown-item" href="#">投稿</a>
+        <a class="dropdown-item" href="{{ route('articles.create') }}">投稿</a>
         <a class="dropdown-item" href="#"><i class="far fa-user-circle"></i>{{ Auth::user()->name }}</a>
         <form method="POST" action="{{ route('logout') }}">
           @csrf
