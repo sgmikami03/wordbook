@@ -2026,6 +2026,11 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   computeds: {},
+  created: function created() {
+    for (var i = 0; i < this.wordList.length; i++) {
+      this.$set(this.wordList[i], "wordEditMode", false);
+    }
+  },
   methods: {
     addWord: function addWord() {
       if (this.nextWord.ja !== "" && this.nextWord.en) {
@@ -2055,6 +2060,9 @@ __webpack_require__.r(__webpack_exports__);
       this.$nextTick(function () {
         targetWord.querySelector('input').focus();
       });
+    },
+    deleteWord: function deleteWord(key) {
+      this.wordList.splice(key, 1);
     },
     checkSubmit: function checkSubmit() {
       if (this.wordList.length <= 0 || this.wordList.length == null) {
@@ -20582,7 +20590,18 @@ var render = function() {
                       [_vm._v("編集")]
                     ),
                 _vm._v(" "),
-                _c("a", { staticClass: "text-danger" }, [_vm._v("削除")])
+                _c(
+                  "a",
+                  {
+                    staticClass: "text-danger",
+                    on: {
+                      click: function($event) {
+                        return _vm.deleteWord(key)
+                      }
+                    }
+                  },
+                  [_vm._v("削除")]
+                )
               ]),
               _vm._v(" "),
               _c("input", {

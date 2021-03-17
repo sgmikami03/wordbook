@@ -40,7 +40,7 @@
                           <td>
                               <a class="text-info" v-if="word.wordEditMode" @click="turnOnFalseWordEditMode(word)">完了</a>
                               <a class="text-info" v-else @click="turnOnTrueWordEditMode(word)">編集</a>
-                              <a class="text-danger">削除</a>
+                              <a class="text-danger" @click="deleteWord(key)">削除</a>
                           </td>
                           <input type="hidden" name="wordList_ja[]" :value="word.ja">
                           <input type="hidden" name="wordList_en[]" :value="word.en">
@@ -65,12 +65,17 @@
             return{
                 nextWord :{
                     "ja": "",
-                    "en": ""
+                    "en": "",
                 },
                 wordList :this.initialWordList,
             }
           },
           computeds:{
+          },
+          created() {
+              for (let i = 0; i < this.wordList.length; i++) {
+                  this.$set(this.wordList[i], "wordEditMode", false);
+              }
           },
           methods: {
               addWord(){
@@ -102,6 +107,9 @@
                   this.$nextTick(() => {
                     targetWord.querySelector('input').focus()
                   })
+              },
+              deleteWord(key) {
+                this.wordList.splice(key, 1)
               },
               checkSubmit(){
                 if (this.wordList.length <= 0 || this.wordList.length == null) {
