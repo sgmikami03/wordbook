@@ -40,8 +40,8 @@ class ArticleController extends Controller
 
     public function edit(Article $article)
     {
-        //$editedWords = $article->editedWords();
-        $editedWords = json_encode($article->words);
-        return view("articles.edit", ["article" => $article, "editedWords" => $editedWords]);
+            return view("articles.edit", ["article" => $article]);
     }
+
+    
 }
