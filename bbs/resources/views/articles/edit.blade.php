@@ -18,7 +18,7 @@
     <br>
 
     <label for="overview" class="text-muted">概要入力</label>
-    <textarea name="overview" cols="30" rows="2" class="form-control">{{ $article->title }}</textarea>
+    <textarea name="overview" cols="30" rows="2" class="form-control">{{ $article->overview }}</textarea>
     <br>
     
     <create-wordbook v-bind:initial-word-list={{ ($article->words) }}></create-wordbook>
