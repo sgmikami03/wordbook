@@ -2011,13 +2011,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    "initialWordList": {
+      "default": ""
+    }
+  },
   data: function data() {
     return {
       nextWord: {
         "ja": "",
         "en": ""
       },
-      wordList: []
+      wordList: this.initialWordList
     };
   },
   computeds: {},

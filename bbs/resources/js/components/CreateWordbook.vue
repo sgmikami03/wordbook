@@ -55,17 +55,22 @@
             
     <script>
       export default{
+          props: 
+          {
+              "initialWordList": {
+                  default: ""
+              }
+          },
           data(){
             return{
                 nextWord :{
                     "ja": "",
                     "en": ""
                 },
-                wordList :[]
+                wordList :this.initialWordList,
             }
           },
           computeds:{
-              
           },
           methods: {
               addWord(){
