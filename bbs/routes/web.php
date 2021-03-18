@@ -14,3 +14,4 @@
 Auth::routes();
 Route::get('/', 'ArticleController@index')->name('index');
 Route::resource('/articles', 'ArticleController')->except(['index']);
+Route::get('/articles/solve/{article}/{isEnglishToJapanese}', 'ArticleController@solve')->name('articles.solve');

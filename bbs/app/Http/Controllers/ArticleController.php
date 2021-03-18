@@ -40,11 +40,16 @@ class ArticleController extends Controller
 
     public function edit(Article $article)
     {
-            return view("articles.edit", ["article" => $article]);
+        return view("articles.edit", ["article" => $article]);
     }
 
     public function show(Article $article)
     {
         return view("articles.show", ["article" => $article]);
+    }
+
+    public function solve(Article $article, Request $request)
+    {
+        return view("articles.solve", ["article" => $article, "isEnglishToJapanese" => $request->isEnglishToJapanese]);
     }
 }
