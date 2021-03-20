@@ -43,6 +43,34 @@ class ArticleController extends Controller
         return view("articles.edit", ["article" => $article]);
     }
 
+    public function update(Request $request)
+    {
+        $article = Article::where('id', $request->id)->first();
+
+        $article->title = $request->title;
+        $article->overview = $request->overview;
+        $article->user_id = $request->user_id;
+        $article->save();
+
+        foreach($article->words as $word){
+            if(!in_array($word->id ,$request->wordList_id)){
+                \DB::table('words')->where('id', $word->id)->delete();
+            }
+        }
+
+        for ($i=0; $i < count($request->wordList_id); $i++) {
+            if (isset($request->wordList_id[$i])) {
+                \DB::table('words')->where('id', $request->wordList_id[$i])
+                  ->update(['ja'=> $request->wordList_ja[$i], 'en'=> $request->wordList_en[$i]]);
+            }else{
+                \DB::table('words')
+                  ->insert(['ja'=> $request->wordList_ja[$i], 'en'=> $request->wordList_en[$i], 'article_id'=> $request->article]);
+            }
+        }
+        
+        return redirect()->route('articles.show', ['article' => $request->article]);
+    }
+
     public function show(Article $article)
     {
         return view("articles.show", ["article" => $article]);

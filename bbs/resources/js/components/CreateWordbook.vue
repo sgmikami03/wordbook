@@ -44,6 +44,7 @@
                           </td>
                           <input type="hidden" name="wordList_ja[]" :value="word.ja">
                           <input type="hidden" name="wordList_en[]" :value="word.en">
+                          <input type="hidden" name="wordList_id[]" :value="!(word.id === null) ? word.id : ''">
                       </tr>
                     </tbody>
                 </table>

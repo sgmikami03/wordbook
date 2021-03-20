@@ -2010,6 +2010,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     "initialWordList": {
@@ -20890,6 +20891,11 @@ var render = function() {
               _c("input", {
                 attrs: { type: "hidden", name: "wordList_en[]" },
                 domProps: { value: word.en }
+              }),
+              _vm._v(" "),
+              _c("input", {
+                attrs: { type: "hidden", name: "wordList_id[]" },
+                domProps: { value: !(word.id === null) ? word.id : "" }
               })
             ])
           }),
