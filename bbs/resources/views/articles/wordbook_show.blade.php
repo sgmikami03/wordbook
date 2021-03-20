@@ -9,11 +9,16 @@
   </thead>
   <tbody>
     @foreach($article->words as $key => $word)
-      <tr>
+      <tr 
+        @if($result)
+          class="{{ $corrects[$key] ? 'correct' : 'incorrect' }}"
+        @endif>
         <th scope="row">{{ $key + 1 }}</th>
         <td>{{ $word->ja }}</td>
         <td>{{ $word->en }}</td>
-        <td>option</td>
+        @if($result)
+        <td>{{ $corrects[$key] ? '正解!' : '不正解!' }}</td>
+        @endif
       </tr>
     @endforeach
   </tbody>

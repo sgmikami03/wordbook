@@ -2127,6 +2127,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     "initialWordList": {
@@ -2138,7 +2140,8 @@ __webpack_require__.r(__webpack_exports__);
     csrf: {
       type: String,
       required: true
-    }
+    },
+    initialWordbookId: {}
   },
   data: function data() {
     return {
@@ -2191,13 +2194,12 @@ __webpack_require__.r(__webpack_exports__);
       answers: [],
       corrects: [],
       correct_choise: [],
-      id: 2,
+      id: this.initialWordbookId,
       number: 0,
       numberOfQuestions: 0,
       //すぐ変更
       isResults: false,
-      isEnglishToJapanese: this.initialIsEnglishToJapanese,
-      url: '/articles/result/' + this.id + '/' + this.isEnglishToJapanese
+      isEnglishToJapanese: this.initialIsEnglishToJapanese
     };
   },
   created: function created() {
@@ -21022,11 +21024,21 @@ var render = function() {
     _vm._v(" "),
     _c(
       "form",
-      { attrs: { action: _vm.url, method: "post", name: "result" } },
+      { attrs: { action: "/articles/result", method: "post", name: "result" } },
       [
         _c("input", {
           attrs: { type: "hidden", name: "_token" },
           domProps: { value: _vm.csrf }
+        }),
+        _vm._v(" "),
+        _c("input", {
+          attrs: { type: "hidden", name: "id" },
+          domProps: { value: _vm.id }
+        }),
+        _vm._v(" "),
+        _c("input", {
+          attrs: { type: "hidden", name: "isEnglishToJapanese" },
+          domProps: { value: _vm.id }
         }),
         _vm._v(" "),
         _vm._l(_vm.numberOfQuestions, function(n) {

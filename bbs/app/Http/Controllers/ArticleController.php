@@ -55,7 +55,15 @@ class ArticleController extends Controller
 
     public function result(Request $request)
     {
-        $article = Article::where('id', $request->id);
+        $article = Article::where('id', $request->id)->first();
+
+        foreach($request->corrects as $correct){
+            if ($correct == "true") {
+                $corrects[] = true;
+            }else{
+                $corrects[] = false;
+            }
+        }
 
         return view('articles.result',[
             'article' => $article,
@@ -63,7 +71,7 @@ class ArticleController extends Controller
             'word_id' => $request->word_id,
             'ja' => $request->ja,
             'en' => $request->en,
-            'corrects' => $request->corrects,
+            'corrects' => $corrects,
         ]);
     }
 }

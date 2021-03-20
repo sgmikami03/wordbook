@@ -10,3 +10,9 @@
     padding: 30px 0;
     margin: 30px 0;
 }
+.correct{
+    background-color: rgb(228, 243, 255);
+}
+.incorrect{
+    background-color: rgb(255, 235, 236);
+}

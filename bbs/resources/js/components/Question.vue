@@ -17,8 +17,10 @@
                     </div>
                 </div>
 
-                <form v-bind:action="url" method="post" name="result">
+                <form action="/articles/result" method="post" name="result">
                     <input type="hidden" name="_token" v-bind:value="csrf">
+                    <input type="hidden" name="id" :value="id">
+                    <input type="hidden" name="isEnglishToJapanese" :value="id">
                     <div v-for="n in numberOfQuestions" :key="n">
                         <input type="hidden" name="word_id[]" :value="wordList[n-1].id">
                         <input type="hidden" name="ja[]" :value="wordList[n-1].ja">
@@ -41,7 +43,9 @@ export default {
             csrf: {
                 type: String,
                 required: true,
-            }
+            },
+            initialWordbookId: {
+            },
         },
         data(){
         return{
@@ -74,12 +78,11 @@ export default {
             answers: [],
             corrects: [],
             correct_choise: [],
-            id: 2,
+            id: this.initialWordbookId,
             number: 0,
             numberOfQuestions: 0,//すぐ変更
             isResults: false,
             isEnglishToJapanese: this.initialIsEnglishToJapanese,
-            url: '/articles/result/' + this.id + '/' + this.isEnglishToJapanese,
           }},
           created: function(){
               this.numberOfQuestions = this.wordList.length;
