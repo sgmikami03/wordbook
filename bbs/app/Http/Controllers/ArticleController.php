@@ -52,4 +52,18 @@ class ArticleController extends Controller
     {
         return view("articles.solve", ["article" => $article, "isEnglishToJapanese" => $request->isEnglishToJapanese]);
     }
+
+    public function result(Request $request)
+    {
+        $article = Article::where('id', $request->id);
+
+        return view('articles.result',[
+            'article' => $article,
+            'isEnglishToJapanese' => $request->isEnglishToJapanese,
+            'word_id' => $request->word_id,
+            'ja' => $request->ja,
+            'en' => $request->en,
+            'corrects' => $request->corrects,
+        ]);
+    }
 }

@@ -14,8 +14,8 @@
 
   <h4 class="text-muted"><small>作成者:</small>{{ $article->user->name }}</h4>
 
-  <a href="{{ route('articles.solve', ['article' => $article, 'isEnglishToJapanese' => true]) }}" class="btn btn-light">問題を解く(英語→日本語)</a>
-  <a href="{{ route('articles.solve', ['article' => $article, 'isEnglishToJapanese' => false]) }}" class="btn btn-light">問題を解く(日本語→英語)</a>
+  <a href="{{ route('articles.solve', ['article' => $article, 'isEnglishToJapanese' => 1]) }}" class="btn btn-light">問題を解く(英語→日本語)</a>
+  <a href="{{ route('articles.solve', ['article' => $article, 'isEnglishToJapanese' => 0]) }}" class="btn btn-light">問題を解く(日本語→英語)</a>
 
   @include("articles.wordbook_show")
 @endsection
