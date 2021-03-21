@@ -59,7 +59,7 @@
           props: 
           {
               "initialWordList": {
-                  default: ""
+                  default: []
               }
           },
           data(){
@@ -79,7 +79,7 @@
               }
           },
           methods: {
-              addWord(){
+              addWord: function(){
                   if(this.nextWord.ja !== "" && this.nextWord.en){
                       this.wordList.unshift({
                           "ja": this.nextWord.ja,
