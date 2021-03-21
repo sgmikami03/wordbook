@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ArticleController extends Controller
 {
@@ -85,11 +86,20 @@ class ArticleController extends Controller
     {
         $article = Article::where('id', $request->id)->first();
 
-        foreach($request->corrects as $correct){
+        $frequency = $article->frequency + 1;
+        $article->update(['frequency'=> $frequency]);
+
+        $authUserId = Auth::user()->id;
+
+        foreach($request->corrects as $key => $correct){
             if ($correct == "true") {
                 $corrects[] = true;
+                \DB::table('exercise_history')
+                  ->insert(['user_id'=> $authUserId, 'word_id'=> $request->word_id[$key], 'isCorrect'=> 1]);
             }else{
                 $corrects[] = false;
+                \DB::table('exercise_history')
+                  ->insert(['user_id'=> $authUserId, 'word_id'=> $request->word_id[$key], 'isCorrect'=> 0]);
             }
         }
 
