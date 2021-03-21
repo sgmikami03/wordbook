@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateArticlesTable extends Migration
+class CreateExerciseHistoryTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateArticlesTable extends Migration
      */
     public function up()
     {
-        Schema::create('articles', function (Blueprint $table) {
+        Schema::create('exercise_history', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title');
-            $table->string('overview')->nullable();
             $table->bigInteger('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->bigInteger('frequency')->default(0);
+            $table->bigInteger('word_id')->unsigned();
+            $table->foreign('word_id')->references('id')->on('words')->onDelete('cascade');
+            $table->bigInteger('isCorrect')->default(0);
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class CreateArticlesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('articles');
+        Schema::dropIfExists('exercise_history');
     }
 }
