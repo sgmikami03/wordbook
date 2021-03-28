@@ -14,6 +14,9 @@
       <h5>投稿した単語帳数:{{ count($articles) }}</h5>
     </div>
   </div>
+ 
+  <h4 class="text-muted">{{$user->name}}さんの苦手単語</h4>
+  @include("articles.wordbook_show", ["result" => false])
 
   @foreach($articles as $article)
     @include("articles.card")
