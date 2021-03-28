@@ -1,4 +1,4 @@
-@extends('app')
+@extends('appUseScript')
 
 @section('title', 'index')
 
@@ -18,6 +18,15 @@
 
   <a href="{{ route('articles.solve', ['article' => $article, 'isEnglishToJapanese' => 1]) }}" class="btn btn-light">問題を解く(英語→日本語)</a>
   <a href="{{ route('articles.solve', ['article' => $article, 'isEnglishToJapanese' => 0]) }}" class="btn btn-light">問題を解く(日本語→英語)</a>
+  <br><br>
+
+  <form name="deleteForm" action="{{ route('articles.destroy', ['article' => $article]) }}" method="post">
+      @csrf
+      @method('DELETE')
+      <a id="deleteBtn" class="btn btn-outline-danger">削除する</a>
+  </form>
+
+  <script src="{{ asset('/js/delete.js') }}"></script>
 
   @include("articles.wordbook_show", ["result" => false])
 @endsection
