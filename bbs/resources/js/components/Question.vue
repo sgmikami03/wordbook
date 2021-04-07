@@ -17,7 +17,7 @@
                     </div>
                 </div>
 
-                <form action="/articles/result" method="post" name="result">
+                <form action="/wordbook/articles/result" method="post" name="result">
                     <input type="hidden" name="_token" v-bind:value="csrf">
                     <input type="hidden" name="id" :value="id">
                     <input type="hidden" name="isEnglishToJapanese" :value="id">
