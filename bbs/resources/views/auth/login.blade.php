@@ -40,4 +40,9 @@
   -->
 </form>
 
+<p>閲覧用のかたは、以下でログインしてください。</p>
+<p>mail: guest@mail.com</p>
+<p>name: guest_viewing</p>
+<p>pass: guestpass</p>
+
 @endsection
