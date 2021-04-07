@@ -21030,7 +21030,13 @@ var render = function() {
     _vm._v(" "),
     _c(
       "form",
-      { attrs: { action: "/articles/result", method: "post", name: "result" } },
+      {
+        attrs: {
+          action: "/wordbook/articles/result",
+          method: "post",
+          name: "result"
+        }
+      },
       [
         _c("input", {
           attrs: { type: "hidden", name: "_token" },
